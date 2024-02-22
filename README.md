@@ -9,6 +9,7 @@ in this code, we create a New Database called RealEstateDB
 it create the PostGIS extension
 
 We create an initial PropertyDetails table 
+
 ```sql
 CREATE TABLE PropertyDetails (
     PropertyID SERIAL PRIMARY KEY,
@@ -21,6 +22,7 @@ CREATE TABLE PropertyDetails (
     GeoLocation GEOMETRY(Point, 4326), -- Spatial data type
     CityPopulation INT
 );
+
 PropertyDetails is in 1NF: 1. The table has a primary key, PropertyID, which uniquely identifies each record. 2. Each attribute in the table is atomic. Address, City, State, Country, ZoningType, Utility, and GeoLocation hold single values for each property. 
 
 In 2NF: there's only one primary key attribute, PropertyID, every non-prime attribute's dependency on the primary key is full, not partial.
