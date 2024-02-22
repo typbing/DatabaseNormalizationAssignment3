@@ -66,6 +66,7 @@ CREATE TABLE PropertyUtilities (
 Similarly, the PropertyUtilities table is created to manage the relationship between properties and their utilities and this allows each property to have multiple utilities.
 
 `ALTER TABLE PropertyDetails DROP COLUMN ZoningType, DROP COLUMN Utility;`
+
 Removing the ZoningType and Utility columns. This change prevents multi-valued dependencies by ensuring that the PropertyDetails table only contains attributes that are directly related to each property and are not independently associated with multiple values.
 Last, demonstrate the insertion of property details with spatial data and the retrieval of properties within a specific radius.
 
