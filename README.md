@@ -21,7 +21,8 @@ CREATE TABLE PropertyDetails (
     Utility VARCHAR(100),
     GeoLocation GEOMETRY(Point, 4326), -- Spatial data type
     CityPopulation INT
-);```
+);
+```
 
 PropertyDetails is in 1NF: 1. The table has a primary key, PropertyID, which uniquely identifies each record. 2. Each attribute in the table is atomic. Address, City, State, Country, ZoningType, Utility, and GeoLocation hold single values for each property. 
 
