@@ -7,6 +7,7 @@ First, setting Up PostGIS:
 in this code, we create a New Database called RealEstateDB
 
 `CREATE EXTENSION postgis;`
+
 it create the PostGIS extension
 
 We create an initial PropertyDetails table 
