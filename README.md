@@ -3,6 +3,7 @@
 This report outlines a systematic approach to the design and standardization of a database customized for a real estate platform.The process begins with the establishment of a preliminary table configuration, which lays the foundation for storing essential property information and progressively normalizing it to the Third Normal Form (3NF) and Fourth Normal Form (4NF).
 First, setting Up PostGIS:
 `CREATE DATABASE "RealEstateDB";`
+
 in this code, we create a New Database called RealEstateDB
 
 `CREATE EXTENSION postgis;`
