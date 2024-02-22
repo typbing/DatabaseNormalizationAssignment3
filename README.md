@@ -29,6 +29,7 @@ PropertyDetails is in 1NF: 1. The table has a primary key, PropertyID, which uni
 In 2NF: there's only one primary key attribute, PropertyID, every non-prime attribute's dependency on the primary key is full, not partial.
 
 CityPopulation depends on City, , which depends on PropertyID. State and Country could also be considered transitively dependent on PropertyID. To normalize this table to 3NF, we remove these transitive dependencies.
+
 ```sql
 CREATE TABLE CityDemographics (
     City VARCHAR(100) PRIMARY KEY,
@@ -36,6 +37,7 @@ CREATE TABLE CityDemographics (
     Country VARCHAR(50),
     CityPopulation INT
 );
+```
 Create a New Table, CityDemographics. Moved CityPopulation, along with City, State, and Country, into a new table. This step removes the transitive dependency by ensuring that all non-key attributes in PropertyDetails directly depend on the primary key. 
 
 `ALTER TABLE PropertyDetails DROP COLUMN CityPopulation, DROP COLUMN State, DROP COLUMN Country;`
@@ -48,6 +50,8 @@ CREATE TABLE PropertyZoning (
     PropertyID INT REFERENCES PropertyDetails(PropertyID),
     ZoningType VARCHAR(100)
 );
+```
+
 To normalize this table to 4NF, create a PropertyZoning table to hold the relationship between properties and their possible zoning types.This can ensure that each property can be associated with multiple zoning types without causing a multi-valued dependency.
 
 ```sql
@@ -56,6 +60,7 @@ CREATE TABLE PropertyUtilities (
     PropertyID INT REFERENCES PropertyDetails(PropertyID),
     Utility VARCHAR(100)
 );
+```
 Similarly, the PropertyUtilities table is created to manage the relationship between properties and their utilities and this allows each property to have multiple utilities.
 
 `ALTER TABLE PropertyDetails DROP COLUMN ZoningType, DROP COLUMN Utility;`
@@ -65,6 +70,8 @@ Last, demonstrate the insertion of property details with spatial data and the re
 ```sql
 INSERT INTO PropertyDetails (Address, City, GeoLocation)
 VALUES ('123 Main St', 'Springfield', ST_GeomFromText('POINT(-89.6501483 39.7817213)', 4326));
+```
+
 It inserts spatial data into PropertyDetails
 ```sql
 SELECT Address, City
@@ -74,4 +81,5 @@ WHERE ST_DWithin(
     ST_GeomFromText('POINT(-89.6501483 39.7817213)', 4326),
     10000 -- The radius in meters (10 kilometers).
 );
+```
 The SELECT query retrieves properties within a 10-kilometer radius of a given point, this query filters out properties outside of a 10 km radius from the specified point, providing focused search results based on spatial proximity.
