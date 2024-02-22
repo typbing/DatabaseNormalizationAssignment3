@@ -43,6 +43,7 @@ CREATE TABLE CityDemographics (
 Create a New Table, CityDemographics. Moved CityPopulation, along with City, State, and Country, into a new table. This step removes the transitive dependency by ensuring that all non-key attributes in PropertyDetails directly depend on the primary key. 
 
 `ALTER TABLE PropertyDetails DROP COLUMN CityPopulation, DROP COLUMN State, DROP COLUMN Country;`
+
 Modify the original table, removed the attributes that caused transitive dependencies CityPopulation, State, Country from the PropertyDetails.
 There are no transitive dependencies in PropertyDetails, as all attributes directly depend on the primary key, achieving 3NF.
 
