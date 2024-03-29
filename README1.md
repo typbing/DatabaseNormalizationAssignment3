@@ -6,6 +6,12 @@ raster2pgsql -s 4324 -I -C -M DNI.tif public.DNI_focus_area.tif > DNI.sql
 raster2pgsql -s 4326 -I -C -M elevation.tif public.elevation_focus_area.tif > elevation.sql
 ```
 
+Import the raster data into databas:
+```
+psql -d groupProj -U postgres -h localhost -p 5433 -f DNI.sql   
+psql -d groupProj -U postgres -h localhost -p 5433 -f elevation.sql
+```
+
 
 ### For DNI.tif
 
