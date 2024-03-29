@@ -26,7 +26,9 @@ psql -d groupProj -U postgres -h localhost -p 5433 -f elevation.sql
 
 
 
-### Elevation table
+
+
+### Elevation table:
 
 | rid | rast |
 | --- | --- |
