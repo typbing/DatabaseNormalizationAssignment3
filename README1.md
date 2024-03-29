@@ -3,9 +3,9 @@
 ## Import Commands
 
 To import the raster data , use the following commands:
-```bash
+```
 raster2pgsql -s 4324 -I -C -M DNI.tif public.DNI_focus_area.tif > DNI.sql
-
+```
 
 
 ### For DNI.tif
