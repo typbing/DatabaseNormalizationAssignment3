@@ -1,8 +1,9 @@
 ## Import Commands
 
-To import the DNI raster data , use the following commands:
+Convert raster files into SQL format:
 ```
 raster2pgsql -s 4324 -I -C -M DNI.tif public.DNI_focus_area.tif > DNI.sql
+raster2pgsql -s 4326 -I -C -M elevation.tif public.elevation_focus_area.tif > elevation.sql
 ```
 
 
