@@ -1,5 +1,3 @@
-## Raster Data Table(
-
 ## Import Commands
 
 To import the raster data , use the following commands:
